@@ -17,6 +17,7 @@ import {
 } from './../../store/stops/actions';
 import { toggleTrashIcon } from './../../store/icons/actions';
 import { getStopsById, getStopData, getEditingState } from './../../store/stops/selectors';
+import objectValues from './../../utils/objectValues';
 
 import { SwatchItem, SwatchContainer } from './../../components/Swatch/index';
 
@@ -236,7 +237,7 @@ const mapStateToProps = (state, props) => {
   const stops = getStopsById(state, props);
   const updatingValue = state.stops.updating.stop;
   const stopKeys = Object.keys(stops);
-  const colors = Object.values(stops);
+  const colors = objectValues(stops);
   const editing = getEditingState(state, props);
   const editingColor = state.stops.editingColor;
   return {

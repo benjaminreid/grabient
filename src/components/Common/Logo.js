@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Animate } from 'react-move';
 
 import { INITIAL_STATE } from './../../store/stops/reducer';
+import objectValues from './../../utils/objectValues';
 
 const { values } = INITIAL_STATE;
 const newValues = [
-  ...Object.values(values),
+  ...objectValues(values),
   {
     '0': '#00E8F3',
     '100': '#96EA00'
@@ -14,7 +15,7 @@ const newValues = [
 
 const getRandomColor = length =>
   Array.from({ length }).map(() => {
-    const colorSet = Object.values(newValues[Math.floor(Math.random() * newValues.length)]);
+    const colorSet = objectValues(newValues[Math.floor(Math.random() * newValues.length)]);
     return colorSet[Math.floor(Math.random() * colorSet.length)];
   });
 

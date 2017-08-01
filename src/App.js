@@ -15,6 +15,7 @@ import {
 import { toggleEditing, updatePage } from './store/gradients/actions';
 import { toggleTrashIcon } from './store/icons/actions';
 import { getGradients } from './store/gradients/selectors';
+import objectValues from './utils/objectValues';
 
 import { GradientDisplay, GradientList, Hero, Footer } from './components/index';
 import { ActionsGroup, Pagination } from './containers/index';
@@ -163,7 +164,7 @@ class App extends Component {
     const editing = editingAngle || editingStop || pickingColorStop;
     const start = (currPage - 1) * items;
     const end = start + items;
-    const currGradients = Object.values(allGradients).slice(start, end);
+    const currGradients = objectValues(allGradients).slice(start, end);
 
     return (
       <div>
